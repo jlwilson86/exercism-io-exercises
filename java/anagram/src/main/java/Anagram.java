@@ -13,7 +13,7 @@ public class Anagram {
   public List<String> match(List<String> possibleAnagrams) {
     return possibleAnagrams
             .stream()
-            .filter( p -> this.isAnagramOf(p) )
+            .filter(this::isAnagramOf)
             .collect(Collectors.toList());
   }
 
