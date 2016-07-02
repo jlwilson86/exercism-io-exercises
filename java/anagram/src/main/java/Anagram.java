@@ -3,7 +3,7 @@ import java.util.stream.Collectors;
 
 public class Anagram {
   private final String word;
-  private final char[] canonical;
+  private final int[] canonical;
 
   public Anagram(String word) {
     this.word = word;
@@ -21,9 +21,7 @@ public class Anagram {
     return !this.word.equalsIgnoreCase(another) && Arrays.equals(this.canonical, canonicalForm(another));
   }
 
-  private char[] canonicalForm(String word) {
-    char[] alphabetised = word.toLowerCase().toCharArray();
-    Arrays.sort(alphabetised);
-    return alphabetised;
+  private int[] canonicalForm(String word) {
+    return word.toLowerCase().chars().sorted().toArray();
   }
 }
